@@ -38,7 +38,7 @@ export default function App() {
 
         }}>
         <NeumorphEffect {...neumorphSetting}>
-          <Card fill={Colors.coolGrey[1]} borderRadius={32} >
+          <Card fill={Colors.coolGrey[1]} borderRadius={2} >
             <UserInfo userName="Username" title="title" />
           </Card>
 
@@ -52,5 +52,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.sky
   },
 });

@@ -1,15 +1,14 @@
 import React, { useCallback, useState } from 'react';
 import { ColorValue, LayoutChangeEvent, StyleSheet, View } from 'react-native';
-import CardCorner from '../SVG/cardCorner';
+import CardCorner, { iCardCorner } from '../SVG/cardCorner';
 
-export interface CardProps {
-  borderRadius: number;
-  fill: string;
+
+export interface CardProps extends iCardCorner {
   // height?: number | any
   // width?: number | any
-  children?: React.ReactNode | null
-  container?: void
-  columnContainer?: void
+  children?: React.ReactNode
+  // container?: void
+  // columnContainer?: void
   //NOTE: mandatory card attributes-- height, width. 
 }
 
@@ -24,7 +23,7 @@ export const bottomRight = "M54.996 0H0v55C30.355 55 55 42.074 55 .846c0-.283-.0
 
 // Card surface 
 
-export default function Card(props: CardProps & typeof CardCorner) {
+export default function Card(props: CardProps) {
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -39,15 +38,14 @@ export default function Card(props: CardProps & typeof CardCorner) {
     container: {
       flex: 1,
       flexDirection: 'row',
-      backgroundColor: 'transparent',
-      borderRadius: props.borderRadius + 7,
+      borderRadius: props.borderRadius,
       overflow: 'visible',
 
     },
     columnContainer: {
       flexDirection: 'column',
       alignContent: 'center',
-      // maxWidth: props.borderRadius,
+      width: props.borderRadius,
       height: dimensions.height,
       overflow: 'visible'
 
@@ -65,7 +63,6 @@ export default function Card(props: CardProps & typeof CardCorner) {
     contentSpace: {
       flexDirection: 'column',
       alignContent: 'center',
-      // maxHeight: props.height,
       width: subtract(dimensions.width, props.borderRadius * 2),
       backgroundColor: props.fill,
     },
@@ -73,12 +70,11 @@ export default function Card(props: CardProps & typeof CardCorner) {
       flex: 1,
       alignSelf: 'center',
       alignContent: 'center',
-      marginRight: 100,
-      marginBottom: 30,
-      overflow: 'visible',
-      // // height: props.height,
-      // width: dimensions.width,
-      // height: dimensions.height,
+      marginRight: dimensions.width,
+      marginBottom: dimensions.height,
+      // overflow: 'hidden',
+      // backgroundColor: props.fill,
+      padding: 32
     }
   });
 
