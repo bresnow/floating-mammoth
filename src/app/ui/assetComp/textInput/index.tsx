@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { CardCornerProps } from '../SVG/cardCorner';
-import NeumorphEffect from '../../effects/neumorphic';
+import NeumorphEffect from '../../../../../ui/effects/neumorphic';
 
 interface iTextInput {
   icon?: React.ReactNode 

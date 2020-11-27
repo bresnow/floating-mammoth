@@ -18,5 +18,8 @@
   "git.postCommitCommand": "sync",
   "git.scanRepositories": [
     "src"
+  ],
+  "cSpell.words": [
+    "neumorphic"
   ]
 }

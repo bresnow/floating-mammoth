@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { CardProps } from '../../assetComp/card';
+
 
 export interface NeumorphProps {
   children?: React.ReactNode 

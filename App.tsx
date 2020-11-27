@@ -3,9 +3,9 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Card from './src/app/ui/assetComp/card';
 import { UserInfo } from './src/app/ui/contentComp/modules/userInfo';
-import { Playground } from './src/app/ui/contentComp/screens/playground';
 import NeumorphEffect from './src/app/ui/effects/neumorphic';
 import { Colors } from './src/app/ui/constants/colors';
+import Switch from './src/app/ui/assetComp/switch';
 //import {FlingGestureHandler} from 'react-native-gesture-handler'
 const neumorphSetting = {
   height: 110,
@@ -29,6 +29,7 @@ const neumorphSetting = {
 export default function App() {
   return (
     <View style={styles.container}>
+      <Switch />
       <View
         style={{
           alignItems: "center",
@@ -38,7 +39,7 @@ export default function App() {
 
         }}>
         <NeumorphEffect {...neumorphSetting}>
-          <Card fill={Colors.coolGrey[1]} borderRadius={2} >
+          <Card fill={Colors.coolGrey[1]} borderRadius={32} >
             <UserInfo userName="Username" title="title" />
           </Card>
 

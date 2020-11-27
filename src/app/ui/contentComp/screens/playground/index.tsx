@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Card from "../../../assetComp/card";
-import { InputComp } from "../../../assetComp/textInput";
-//import { Switch } from '../../../assetComp/switch';
-import NeumorphEffect from "../../../effects/neumorphic";
-import { UserInfo } from "../../modules/userInfo";
-import { Colors } from '../../../constants/colors';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Card from './src/app/ui/assetComp/card';
+import { UserInfo } from './src/app/ui/contentComp/modules/userInfo';
+import { Playground } from './src/app/ui/contentComp/screens/playground';
+import NeumorphEffect from './src/app/ui/effects/neumorphic';
+import { Colors } from './src/app/ui/constants/colors';
 //import {FlingGestureHandler} from 'react-native-gesture-handler'
 const neumorphSetting = {
   height: 110,
@@ -27,9 +26,9 @@ const neumorphSetting = {
   inset: false,
 };
 
-export const Playground = () => {
+export default function App() {
   return (
-    <View style={styles.root}>
+    <View style={styles.container}>
       <View
         style={{
           alignItems: "center",
@@ -39,24 +38,20 @@ export const Playground = () => {
 
         }}>
         <NeumorphEffect {...neumorphSetting}>
-          <Card fill="transparent" borderRadius={32} >
+          <Card fill={Colors.coolGrey[1]} borderRadius={32} >
             <UserInfo userName="Username" title="title" />
           </Card>
 
 
         </NeumorphEffect>
       </View>
-    </View >
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  root: {
+  container: {
     flex: 1,
-    backgroundColor: Colors.coolGrey[1],
-    justifyContent: "center",
-  },
-  welcome: {
-    textAlign: "center",
+    backgroundColor: Colors.sky
   },
 });
